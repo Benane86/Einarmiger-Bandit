@@ -12,9 +12,13 @@ namespace einarmiger_bandit
         static void Main(string[] args)
         {
             int einsatz;
+            int betrag;
             Console.WriteLine("Willkommen zum Einarmigen Bandit");
             Console.WriteLine("Wie viel Geld willst du Einwerfen?");
             einsatz = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Wie hoch ist dein Einsatz?");
+            betrag = int.Parse(Console.ReadLine());
             Console.Clear();
             Console.WriteLine("Einsatz: {0}", einsatz);
             Console.WriteLine("");
@@ -60,13 +64,13 @@ namespace einarmiger_bandit
             }
             if (rndvergleich == random3)
             {
-                einsatz = einsatz +1;
+                einsatz = einsatz + betrag;
                 Console.WriteLine("");
                 Console.WriteLine("Gewonnen");
             }
             else
             {
-                einsatz = einsatz - 1;
+                einsatz = einsatz - betrag;
             }
             if (einsatz > 0)
             {

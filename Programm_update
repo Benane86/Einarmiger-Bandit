@@ -1,0 +1,130 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
+namespace einarmiger_bandit
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int einsatz;
+            Console.WriteLine("Willkommen zum Einarmigen Bandit");
+            Console.WriteLine("Wie viel Geld willst du Einwerfen?");
+            einsatz = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Einsatz: {0}", einsatz);
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("zum starten beliebige Taste drücken");
+            Console.ReadKey();
+        sprung:
+            Console.Clear();
+            Thread.Sleep(10);
+            Random rnd1 = new Random();
+            int random1 = rnd1.Next(3);
+            Thread.Sleep(111);
+            string symbol1 = Symbol(random1);
+            Console.WriteLine("Einsatz: {0}", einsatz);
+            Console.WriteLine("");
+            Console.WriteLine("| {0} |   |   |", symbol1);
+            Thread.Sleep(1110);
+            Console.Clear();
+            Random rnd2 = new Random();
+            int random2 = rnd2.Next(3);
+            Thread.Sleep(221);
+            string symbol2 = Symbol(random2);
+            Console.WriteLine("Einsatz: {0}", einsatz);
+            Console.WriteLine("");
+            Console.WriteLine("| {0} | {1} |   |",symbol1, symbol2);
+            Thread.Sleep(1110);
+            Console.Clear();
+            Random rnd3 = new Random();
+            int random3 = rnd3.Next(3);
+            Thread.Sleep(331);
+            string symbol3 = Symbol(random3);
+            // Console.WriteLine("{0} {1} {2}", random1, random2, random3);
+            Console.WriteLine("Einsatz: {0}", einsatz);
+            Console.WriteLine("");
+            Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
+            Console.WriteLine("");
+            Console.WriteLine("beliebige Taste drücken");
+            int rndvergleich = 99;
+            if (random1 == random2)
+            {
+                rndvergleich = random1;
+            }
+            if (rndvergleich == random3)
+            {
+                einsatz = einsatz +1;
+                Console.WriteLine("");
+                Console.WriteLine("Gewonnen");
+            }
+            else
+            {
+                einsatz = einsatz - 1;
+            }
+            if (einsatz > 0)
+            {
+                Console.ReadKey();
+                Console.Clear();
+                goto sprung;
+            }
+            else
+            {
+                Console.WriteLine("Game Over");
+            }
+            Console.ReadKey();
+
+
+        }
+        static string Symbol(int a)
+        {
+            if (a == 0)
+            {
+                return "*";
+            }
+            else if (a == 1)
+            {
+                return "#";
+            }
+            else
+            {
+                return "x";
+            }
+
+
+        }
+
+       /* static int Geld(int a)
+        {
+            if (a > 0)
+            {
+                return a;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        static string Gameover(int a)
+        {
+           if (a == -1)
+            {
+                return "Game Over";
+            }
+           else
+            {
+                return Convert.ToString(a);
+            }
+        }*/
+
+
+    }
+
+}

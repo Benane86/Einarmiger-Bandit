@@ -11,6 +11,7 @@ namespace einarmiger_bandit
     {
         static void Main(string[] args)
         {
+            Console.Title = "Einarmiger Bandit V0.3";
             int einsatz;
             int betrag;
             Console.WriteLine("Willkommen zum Einarmigen Bandit");
